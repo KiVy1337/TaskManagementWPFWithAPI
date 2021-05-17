@@ -1,0 +1,64 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:TaskManagement.WPF.Resources">
+    <!--Main View-->
+    <v:String x:Key="MainView_Title">Управление задачами</v:String>
+    <v:String x:Key="MainView_ChangeLanguage">Изменить язык</v:String>
+    <v:String x:Key="MainView_Logout">Выйти</v:String>
+    <v:String x:Key="MainView_IssuesAndTasks">Проблемы и задачи</v:String>
+
+    <!--Login Register View-->
+    <v:String x:Key="RegisterView_Email">Email</v:String>
+    <v:String x:Key="LoginRegisterView_Username">Имя пользователя</v:String>
+    <v:String x:Key="LoginRegisterView_Password">Пароль</v:String>
+    <v:String x:Key="RegisterView_ConfirmPassword">Повторите пароль</v:String>
+    <v:String x:Key="LoginView_Login">Войти</v:String>
+    <v:String x:Key="LoginView_To_RegisterView">Ещё нет аккаунта?</v:String>
+    <v:String x:Key="RegisterView_To_LoginView">Уже зарегистрированы?</v:String>
+
+    <!--Change Language View-->
+    <v:String x:Key="ChangeLanguageView_Language">Язык</v:String>
+    <v:String x:Key="ChangeLanguageView_Accept">Принять</v:String>
+    <v:String x:Key="ChangeLanguageView_Cancel">Отменить</v:String>
+
+    <!--Issues and Tasks View-->
+    <v:String x:Key="IssuesAndTasksView_Remove">Удалить</v:String>
+    <v:String x:Key="IssuesView_AddIssue">Добавить проблему</v:String>
+    <v:String x:Key="IssuesView_UpdateIssue">Обновить проблему</v:String>
+    <v:String x:Key="IssuesView_StartDate">Дата начала</v:String>
+    <v:String x:Key="IssuesView_Status">Статус</v:String>
+    <v:String x:Key="TasksView_Description">Описание</v:String>
+    <v:String x:Key="TasksView_Progress">Прогресс</v:String>
+    <v:String x:Key="TasksView_SelectIssue">Выберите проблему:</v:String>
+    <v:String x:Key="TasksView_AddTask">Добавить задачу</v:String>
+    <v:String x:Key="TasksView_UpdateTask">Обновить задачу</v:String>
+    <v:String x:Key="IssuesAndTasksView_Title">Название</v:String>
+
+    <!--Add Issue View-->
+    <v:String x:Key="AddIssuesView_NewIssue">Новая проблема</v:String>
+
+    <!--Update Issue View-->
+    <v:String x:Key="UpdateIssuesView_UpdateTheIssue">Обновить проблему</v:String>
+
+    <!--Add Task View-->
+    <v:String x:Key="AddTasksView_NewTask">Новая задача</v:String>
+
+    <!--Update Task View-->
+    <v:String x:Key="UpdateTasksView_UpdateTheTask">Обновить задачу</v:String>
+
+    <!--Buttons-->
+    <v:String x:Key="Buttons_Add">Добавить</v:String>
+    <v:String x:Key="Buttons_Update">Обновить</v:String>
+    <v:String x:Key="Buttons_Cancel">Отмена</v:String>
+    <v:String x:Key="Buttons_Register">Регистрация</v:String>
+
+    <!--Errors-->
+    <v:String x:Key="Errors_UsernameDoesntExists">Имя пользователя не существует.</v:String>
+    <v:String x:Key="Errors_IncorrectPassword">Неверный пароль.</v:String>
+    <v:String x:Key="Errors_Failed">Неудача:(</v:String>
+    <v:String x:Key="Errors_EmailAccountAlreadyExists">Аккаунт с таким Email уже существует.</v:String>
+    <v:String x:Key="Errors_UsernameAccountAlreadyExists">Аккаунт с таким именем уже существует.</v:String>
+    <v:String x:Key="Errors_PasswordMissmatch">Пароли не совпадают.</v:String>
+    <v:String x:Key="Errors_InvalidEmail">Проверьте введённый email.</v:String>
+</ResourceDictionary>

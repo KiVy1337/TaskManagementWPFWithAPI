@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:WebAPI.Controllers.AccountsController.Get">
+            <summary>
+            Allows authorized user to get information about his account AND his ISSUES .
+            </summary> 
+            <response code="200">Returns user account</response>
+            <response code="404">Account not found</response>
+        </member>
+        <member name="M:WebAPI.Controllers.AuthenticationController.Register(WebAPI.Models.Requests.RegistrationRequest)">
+            <summary>
+            Allows a new user to register.
+            </summary>
+            <param name="registrationRequest"></param> 
+            <response code="200">Returns access and refresh tokens in one object</response>
+            <response code="400">Returns "Passwords don't match" or information about some parameters</response>
+            <response code="409">Returns "Account with this email already exists." or "Account with this username already exists." messages </response>
+        </member>
+        <member name="M:WebAPI.Controllers.AuthenticationController.Login(WebAPI.Models.Requests.LoginRequest)">
+            <summary>
+            Allows a user to login.
+            </summary>
+            <param name="loginRequest"></param> 
+            <response code="200">Returns access and refresh tokens in one object</response>
+            <response code="400">Returns information about wrong parameters</response>
+            <response code="401">Returns "User with this username wasn't found." or "Password is invalid." messages </response>
+        </member>
+        <member name="M:WebAPI.Controllers.AuthenticationController.Refresh(WebAPI.Models.Requests.RefreshRequest)">
+            <summary>
+            Allows a user to refresh his tokens.
+            </summary>
+            <param name="refreshRequest"></param> 
+            <response code="200">Returns access and refresh tokens in one object</response>
+            <response code="400">Returns "Invalid refresh token." message</response>
+            <response code="404">Returns "Invalid refresh token." or "Account not found." messages </response>
+        </member>
+        <member name="M:WebAPI.Controllers.AuthenticationController.Logout">
+            <summary>
+            Allows authorized user to delete his all refresh tokens.
+            </summary>
+            <response code="204">Returns nothing:)</response>
+            <response code="401">Wrong user id</response>
+        </member>
+        <member name="M:WebAPI.Controllers.IssuesController.Get(System.Int32)">
+            <summary>
+            Allows a authorized user to get his issue with tasks by id.
+            </summary>
+            <param name="id"></param> 
+            <response code="200">Returns issue with tasks</response>
+            <response code="404">Issue not found</response>
+        </member>
+        <member name="M:WebAPI.Controllers.IssuesController.Post(WebAPI.Models.Issue)">
+            <summary>
+            Allows a authorized user create new issue.
+            </summary>
+            <param name="issue"></param> 
+            <response code="400">Wrong information was sent in the body</response>
+            <response code="200">Return the issue</response>
+        </member>
+        <member name="M:WebAPI.Controllers.IssuesController.Put(WebAPI.Models.Issue)">
+            <summary>
+            Allows a authorized user update his issue.
+            </summary>
+            <param name="issue"></param> 
+            <response code="400">Wrong information was sent in the body</response>
+            <response code="404">Issue not found</response>
+            <response code="200">Return the updated issue</response>
+        </member>
+        <member name="M:WebAPI.Controllers.IssuesController.Delete(System.Collections.Generic.List{WebAPI.Models.Issue})">
+            <summary>
+            Allows a authorized user delete his issues.
+            </summary>
+            <param name="issues"></param> 
+            <response code="200">Return nothing</response>
+            
+        </member>
+        <member name="M:WebAPI.Controllers.TasksController.Get(System.Int32)">
+            <summary>
+            Allows a authorized user to get his task by id.
+            </summary>
+            <param name="id"></param> 
+            <response code="200">Returns the task</response>
+            <response code="404">Task not found</response>
+        </member>
+        <member name="M:WebAPI.Controllers.TasksController.Post(WebAPI.Models.Task)">
+            <summary>
+            Allows a authorized user to get his task by id.
+            </summary>
+            <param name="task"></param> 
+            <response code="400">Wrong information was sent in the body</response>
+            <response code="200">Returns task</response>
+        </member>
+        <member name="M:WebAPI.Controllers.TasksController.Put(WebAPI.Models.Task)">
+            <summary>
+            Allows a authorized user to update his task.
+            </summary>
+            <param name="task"></param> 
+            <response code="400">Wrong information was sent in the body</response>
+            <response code="404">The task not found</response>
+            <response code="200">Returns the updated task</response>
+        </member>
+        <member name="M:WebAPI.Controllers.TasksController.Delete(System.Collections.Generic.List{WebAPI.Models.Task})">
+            <summary>
+            Allows a authorized user to delete his tasks.
+            </summary>
+            <param name="tasks"></param> 
+            <response code="200">Returns nothing</response>
+        </member>
+    </members>
+</doc>

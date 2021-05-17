@@ -1,0 +1,9 @@
+C:\Users\Kirik\source\repos\TaskManagement\TaskManagement.Domain\bin\Debug\TaskManagement.Domain.dll
+C:\Users\Kirik\source\repos\TaskManagement\TaskManagement.Domain\bin\Debug\TaskManagement.Domain.pdb
+C:\Users\Kirik\source\repos\TaskManagement\TaskManagement.Domain\obj\Debug\TaskManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Kirik\source\repos\TaskManagement\TaskManagement.Domain\obj\Debug\TaskManagement.Domain.dll
+C:\Users\Kirik\source\repos\TaskManagement\TaskManagement.Domain\obj\Debug\TaskManagement.Domain.pdb
+C:\Users\Kirik\source\repos\TaskManagement\TaskManagement.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Kirik\source\repos\TaskManagement\TaskManagement.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Kirik\source\repos\TaskManagement\TaskManagement.Domain\obj\Debug\TaskManagement.Domain.csproj.CopyComplete
+C:\Users\Kirik\source\repos\TaskManagement\TaskManagement.Domain\obj\Debug\TaskManagement.Domain.csprojAssemblyReference.cache
