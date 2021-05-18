@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "r+KDKwEZ36O1DCtv0s5cQ7fgwAg3ezO88xP8rzLINPn2bQM72uEGnNrNL05TQ9QpH6GhzeGKHXk8ta75jbF+Tw==",
+  "dgSpecHash": "npiH/qFbY9LBTyv0pB3pw70rwUjTLhSS8cuvlXKqh05y3xUW8Zk5gLh8qOu5aDcg7nCzsEyH2yKJyROJhokbkg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kirik\\source\\repos\\TaskManagement\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "D:\\WPFRep\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kirik\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.2.3\\microsoft.aspnet.identity.core.2.2.3.nupkg.sha512",
     "C:\\Users\\Kirik\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.6\\microsoft.aspnetcore.authentication.jwtbearer.5.0.6.nupkg.sha512",
