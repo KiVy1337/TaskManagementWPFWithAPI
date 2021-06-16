@@ -1,10 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,7 +8,6 @@ using Microsoft.Extensions.Hosting;
 using TaskModel = WebAPI.Models.Task;
 using WebAPI.Models;
 using WebAPI.Services;
-using System.Text.Json;
 using Microsoft.AspNet.Identity;
 using WebAPI.Services.TokenGenerators;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -24,6 +19,7 @@ using WebAPI.Services.Authenticators;
 using System.Reflection;
 using System.IO;
 using Microsoft.OpenApi.Models;
+using WebAPI.Services.ControllerServices;
 
 namespace WebAPI {
 	public class Startup {
@@ -45,11 +41,16 @@ namespace WebAPI {
 			services.AddSingleton(authenticationConfiguration);
 			services.AddScoped<Authenticator>();
 			services.AddScoped<IAccountService, AccountDataService>();
+			services.AddScoped<IAccountServiceForController, AccountServiceForController>();
+			services.AddScoped<IAuthenticationServiceForController, AuthenticationServiceForController>();
+			services.AddScoped<IIssueServiceForController, IssueServiceForController>();
+			services.AddScoped<ITaskServiceForController, TaskServiceForController>();
 			services.AddScoped<IPasswordHasher, PasswordHasher>();
 			services.AddScoped<AccessTokenGenerator>();
 			services.AddScoped<RefreshTokenGenerator>();
 			services.AddScoped<RefreshTokenValidator>();
 			services.AddScoped<TokenGenerator>();
+			services.AddScoped<GenericDataService<Issue>>();
 			services.AddScoped<IDataService<Issue>, IssueDataService>();
 			services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 			services.AddScoped<IDataService<TaskModel>, GenericDataService<TaskModel>>();

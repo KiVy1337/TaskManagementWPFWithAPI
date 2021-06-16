@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WPFRep\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\Kirik\\source\\repos\\TaskManagement\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\WPFRep\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\Kirik\\source\\repos\\TaskManagement\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WPFRep\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Kirik\\source\\repos\\TaskManagement\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "D:\\WPFRep\\WebAPI\\WebAPI.csproj",
+        "projectPath": "C:\\Users\\Kirik\\source\\repos\\TaskManagement\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\Kirik\\.nuget\\packages\\",
-        "outputPath": "D:\\WPFRep\\WebAPI\\obj\\",
+        "outputPath": "C:\\Users\\Kirik\\source\\repos\\TaskManagement\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

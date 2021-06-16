@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
+//this class is used to represent error response
 namespace WebAPI.Models.Responses {
 	public class ErrorResponse {
 		public IEnumerable<string> ErrorMessages { get; set; }

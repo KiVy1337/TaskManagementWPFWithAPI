@@ -19,7 +19,7 @@ namespace TaskManagement.WPF.Services {
 
 		public async Task<Account> GetAccountAsync(string accessToken) {
 			_client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-			HttpResponseMessage response = await _client.GetAsync("");
+			HttpResponseMessage response = await _client.GetAsync("myaccount");
 			if (response.StatusCode == System.Net.HttpStatusCode.NotFound){
 				return null;
 			}

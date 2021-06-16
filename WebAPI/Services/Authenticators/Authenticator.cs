@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using WebAPI.Models;
 using WebAPI.Models.Responses;
 using WebAPI.Services.RefreshTokenRepositories;
@@ -21,7 +18,7 @@ namespace WebAPI.Services.Authenticators {
 			_refreshTokenRepository = refreshTokenRepository;
 		}
 
-		public async Task<AuthenticatedAccountResponse> Authenticate(Account account) {
+		public async Task<AuthenticatedAccountResponse> AuthenticateAsync(Account account) {
 			string accessToken = _accessTokenGenerator.GenerateToken(account);
 			string refreshToken = _refreshTokenGenerator.GenerateToken();
 
@@ -29,7 +26,7 @@ namespace WebAPI.Services.Authenticators {
 				Token = refreshToken,
 				AccountId = account.Id
 			};
-			await _refreshTokenRepository.Create(refreshTokenDTO);
+			await _refreshTokenRepository.CreateAsync(refreshTokenDTO);
 
 			return new AuthenticatedAccountResponse(accessToken, refreshToken);
 

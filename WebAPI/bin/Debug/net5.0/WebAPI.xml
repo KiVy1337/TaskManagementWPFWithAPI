@@ -4,14 +4,14 @@
         <name>WebAPI</name>
     </assembly>
     <members>
-        <member name="M:WebAPI.Controllers.AccountsController.Get">
+        <member name="M:WebAPI.Controllers.AccountsController.GetAsync">
             <summary>
             Allows authorized user to get information about his account AND his ISSUES .
             </summary> 
             <response code="200">Returns user account</response>
             <response code="404">Account not found</response>
         </member>
-        <member name="M:WebAPI.Controllers.AuthenticationController.Register(WebAPI.Models.Requests.RegistrationRequest)">
+        <member name="M:WebAPI.Controllers.AuthenticationController.RegisterAsync(WebAPI.Models.Requests.RegistrationRequest)">
             <summary>
             Allows a new user to register.
             </summary>
@@ -20,7 +20,7 @@
             <response code="400">Returns "Passwords don't match" or information about some parameters</response>
             <response code="409">Returns "Account with this email already exists." or "Account with this username already exists." messages </response>
         </member>
-        <member name="M:WebAPI.Controllers.AuthenticationController.Login(WebAPI.Models.Requests.LoginRequest)">
+        <member name="M:WebAPI.Controllers.AuthenticationController.LoginAsync(WebAPI.Models.Requests.LoginRequest)">
             <summary>
             Allows a user to login.
             </summary>
@@ -45,7 +45,7 @@
             <response code="204">Returns nothing:)</response>
             <response code="401">Wrong user id</response>
         </member>
-        <member name="M:WebAPI.Controllers.IssuesController.Get(System.Int32)">
+        <member name="M:WebAPI.Controllers.IssuesController.GetAsync(System.Int32)">
             <summary>
             Allows a authorized user to get his issue with tasks by id.
             </summary>
@@ -53,7 +53,7 @@
             <response code="200">Returns issue with tasks</response>
             <response code="404">Issue not found</response>
         </member>
-        <member name="M:WebAPI.Controllers.IssuesController.Post(WebAPI.Models.Issue)">
+        <member name="M:WebAPI.Controllers.IssuesController.PostAsync(WebAPI.Models.Issue)">
             <summary>
             Allows a authorized user create new issue.
             </summary>
@@ -61,16 +61,17 @@
             <response code="400">Wrong information was sent in the body</response>
             <response code="200">Return the issue</response>
         </member>
-        <member name="M:WebAPI.Controllers.IssuesController.Put(WebAPI.Models.Issue)">
+        <member name="M:WebAPI.Controllers.IssuesController.PutAsync(System.Int32,WebAPI.Models.Issue)">
             <summary>
             Allows a authorized user update his issue.
             </summary>
+            <param name="id"></param>
             <param name="issue"></param> 
             <response code="400">Wrong information was sent in the body</response>
             <response code="404">Issue not found</response>
             <response code="200">Return the updated issue</response>
         </member>
-        <member name="M:WebAPI.Controllers.IssuesController.Delete(System.Collections.Generic.List{WebAPI.Models.Issue})">
+        <member name="M:WebAPI.Controllers.IssuesController.DeleteAsync(System.Collections.Generic.List{WebAPI.Models.Issue})">
             <summary>
             Allows a authorized user delete his issues.
             </summary>
@@ -78,35 +79,40 @@
             <response code="200">Return nothing</response>
             
         </member>
-        <member name="M:WebAPI.Controllers.TasksController.Get(System.Int32)">
+        <member name="M:WebAPI.Controllers.TasksController.GetAsync(System.Int32,System.Int32)">
             <summary>
             Allows a authorized user to get his task by id.
             </summary>
-            <param name="id"></param> 
+            <param name="id"></param>
+            <param name="idIssue"></param> 
             <response code="200">Returns the task</response>
             <response code="404">Task not found</response>
         </member>
-        <member name="M:WebAPI.Controllers.TasksController.Post(WebAPI.Models.Task)">
+        <member name="M:WebAPI.Controllers.TasksController.PostAsync(System.Int32,WebAPI.Models.Task)">
             <summary>
             Allows a authorized user to get his task by id.
             </summary>
+            <param name="idIssue"></param> 
             <param name="task"></param> 
             <response code="400">Wrong information was sent in the body</response>
             <response code="200">Returns task</response>
         </member>
-        <member name="M:WebAPI.Controllers.TasksController.Put(WebAPI.Models.Task)">
+        <member name="M:WebAPI.Controllers.TasksController.PutAsync(System.Int32,System.Int32,WebAPI.Models.Task)">
             <summary>
             Allows a authorized user to update his task.
             </summary>
+            <param name="idIssue"></param>
+            <param name="id"></param>
             <param name="task"></param> 
             <response code="400">Wrong information was sent in the body</response>
             <response code="404">The task not found</response>
             <response code="200">Returns the updated task</response>
         </member>
-        <member name="M:WebAPI.Controllers.TasksController.Delete(System.Collections.Generic.List{WebAPI.Models.Task})">
+        <member name="M:WebAPI.Controllers.TasksController.DeleteAsync(System.Int32,System.Collections.Generic.List{WebAPI.Models.Task})">
             <summary>
             Allows a authorized user to delete his tasks.
             </summary>
+            <param name="idIssue"></param>
             <param name="tasks"></param> 
             <response code="200">Returns nothing</response>
         </member>

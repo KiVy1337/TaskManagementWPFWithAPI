@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace WebAPI.Models.Requests {
+	//this class is used to represent registration request
 	public class RegistrationRequest {
 		[Required]
 		[EmailAddress]

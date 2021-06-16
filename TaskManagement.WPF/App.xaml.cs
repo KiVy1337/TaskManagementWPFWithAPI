@@ -130,10 +130,10 @@ namespace TaskManagement.WPF {
 				c.BaseAddress = new Uri("https://localhost:44332/api/accounts/");
 			});
 			services.AddHttpClient<TaskManagementIssuesHttpClient>(c => {
-				c.BaseAddress = new Uri("https://localhost:44332/api/issues/");
+				c.BaseAddress = new Uri("https://localhost:44332/api/accounts/myaccount/issues/");
 			});
 			services.AddHttpClient<TaskManagementTasksHttpClient>(c => {
-				c.BaseAddress = new Uri("https://localhost:44332/api/tasks/");
+				c.BaseAddress = new Uri("https://localhost:44332/api/accounts/myaccount/issues/");
 			});
 
 

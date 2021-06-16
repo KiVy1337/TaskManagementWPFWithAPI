@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,18 +12,18 @@ namespace WebAPI.Services.RefreshTokenRepositories {
 			_context = context;
 		}
 
-		public async  System.Threading.Tasks.Task Create(RefreshToken refreshToken) {
+		public async  System.Threading.Tasks.Task CreateAsync(RefreshToken refreshToken) {
 
 			_context.RefreshTokens.Add(refreshToken);
 
 			await _context.SaveChangesAsync();
 		}
 
-		public async Task<RefreshToken> GetByToken(string token) {
+		public async Task<RefreshToken> GetByTokenAsync(string token) {
 			return await  _context.RefreshTokens.FirstOrDefaultAsync(r => r.Token == token);
 		}
 
-		public async System.Threading.Tasks.Task Delete(int id) {
+		public async System.Threading.Tasks.Task DeleteAsync(int id) {
 			RefreshToken refreshToken = await _context.RefreshTokens.FindAsync(id);
 			if (refreshToken != null) {
 				_context.RefreshTokens.Remove(refreshToken);
@@ -32,7 +31,7 @@ namespace WebAPI.Services.RefreshTokenRepositories {
 			}
 		}
 
-		public async System.Threading.Tasks.Task DeleteAll(int id) {
+		public async System.Threading.Tasks.Task DeleteAllAsync(int id) {
 			IEnumerable<RefreshToken> refreshTokens = await _context.RefreshTokens
 				.Where(t => t.AccountId == id)
 				.ToListAsync();

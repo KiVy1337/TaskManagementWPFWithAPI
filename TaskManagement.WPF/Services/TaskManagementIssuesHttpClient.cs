@@ -56,7 +56,7 @@ namespace TaskManagement.WPF.Services {
 
 			var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-			HttpResponseMessage response = await _client.PutAsync("", data);
+			HttpResponseMessage response = await _client.PutAsync($"{issueToUpdate.Id}", data);
 			string jsonResponse = await response.Content.ReadAsStringAsync();
 			if (response.StatusCode == System.Net.HttpStatusCode.BadRequest || response.StatusCode == System.Net.HttpStatusCode.NotFound) {
 				return -1;

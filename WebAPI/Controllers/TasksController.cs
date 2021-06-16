@@ -1,93 +1,88 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using WebAPI.Services;
 using TaskModel = WebAPI.Models.Task;
-using WebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
+using WebAPI.Services.ControllerServices;
+using System.Security.Claims;
 
 namespace WebAPI.Controllers {
 	[Authorize]
-	[Route("api/[controller]")]
+	[Route("api/accounts/myaccount/issues/{idIssue}/[controller]")]
 	[ApiController]
 	public class TasksController : ControllerBase {
-		private readonly IDataService<TaskModel> _taskDataService;
-		public TasksController(IDataService<TaskModel> taskDataService) {
-			_taskDataService = taskDataService;
+		private readonly ITaskServiceForController _taskService;
+		public TasksController(ITaskServiceForController taskService) {
+			_taskService = taskService;
 		}
 
 		/// <summary>
 		/// Allows a authorized user to get his task by id.
 		/// </summary>
 
-		/// <param name="id"></param> 
+		/// <param name="id"></param>
+		/// <param name="idIssue"></param> 
 		/// <response code="200">Returns the task</response>
 		/// <response code="404">Task not found</response>
 
-		// GET api/tasks/id
+		// GET api/accounts/myaccount/issues/idIssue/tasks/id
 		[HttpGet("{id}")]
-		public async Task<ActionResult<TaskModel>> Get(int id) {
-			TaskModel taskModel = await _taskDataService.GetAsync(id);
-			if (taskModel == null)
-				return NotFound();
-			return new ObjectResult(taskModel);
+		public async Task<ActionResult<TaskModel>> GetAsync(int idIssue, int id) {
+			string accountId = HttpContext.User.FindFirstValue("id");
+			var result = await _taskService.GetAsync(accountId, idIssue, id);
+			return result;
 		}
 
 		/// <summary>
 		/// Allows a authorized user to get his task by id.
 		/// </summary>
 
+		/// <param name="idIssue"></param> 
 		/// <param name="task"></param> 
 		/// <response code="400">Wrong information was sent in the body</response>
 		/// <response code="200">Returns task</response>
 
-		// POST api/tasks/
+		// POST api/accounts/myaccount/issues/idIssue/tasks/
 		[HttpPost]
-		public async Task<ActionResult<TaskModel>> Post(TaskModel task) {
-			if (task == null) {
-				return BadRequest();
-			}
-			await _taskDataService.CreateAsync(task);
-			return Ok(task);
+		public async Task<ActionResult<TaskModel>> PostAsync(int idIssue, TaskModel task) {
+			string accountId = HttpContext.User.FindFirstValue("id");
+			var result = await _taskService.PostAsync(accountId, idIssue, task);
+			return result;
 		}
 
 		/// <summary>
 		/// Allows a authorized user to update his task.
 		/// </summary>
 
+		/// <param name="idIssue"></param>
+		/// <param name="id"></param>
 		/// <param name="task"></param> 
 		/// <response code="400">Wrong information was sent in the body</response>
 		/// <response code="404">The task not found</response>
 		/// <response code="200">Returns the updated task</response>
 
-		// PUT api/tasks/
-		[HttpPut]
-		public async Task<ActionResult<TaskModel>> Put(TaskModel task) {
-			if (task == null) {
-				return BadRequest();
-			}
-			if (!await _taskDataService.IsExistsAsync(task.Id)) {
-				return NotFound();
-			}
-
-			return Ok(await _taskDataService.UpdateAsync(task));
+		// PUT api/accounts/myaccount/issues/idIssue/tasks/id
+		[HttpPut("{id}")]
+		public async Task<ActionResult<TaskModel>> PutAsync(int idIssue, int id, TaskModel task) {
+			string accountId = HttpContext.User.FindFirstValue("id");
+			var result = await _taskService.PutAsync(accountId, idIssue, id, task);
+			return result;
 		}
 
 		/// <summary>
 		/// Allows a authorized user to delete his tasks.
 		/// </summary>
 
+		/// <param name="idIssue"></param>
 		/// <param name="tasks"></param> 
 		/// <response code="200">Returns nothing</response>
 
-		// DELETE api/tasks/
+		// DELETE api/accounts/myaccount/issues/idIssue/tasks/
 		[HttpDelete]
-		public async Task<ActionResult> Delete(List<TaskModel> tasks) {
-			await _taskDataService.DeleteRangeAsync(tasks);
-			return Ok();
+		public async Task<ActionResult> DeleteAsync(int idIssue, List<TaskModel> tasks) {
+			string accountId = HttpContext.User.FindFirstValue("id");
+			var result = await _taskService.DeleteRangeAsync(accountId, idIssue, tasks);
+			return result;
 		}
 	}
 }

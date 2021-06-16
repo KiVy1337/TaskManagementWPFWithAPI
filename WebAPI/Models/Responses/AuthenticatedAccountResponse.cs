@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace WebAPI.Models.Responses {
+﻿namespace WebAPI.Models.Responses {
+	//this class is used to represent  response with tokens
 	public class AuthenticatedAccountResponse {
 		public string AccessToken { get; set; }
 		public string RefreshToken { get; set; }

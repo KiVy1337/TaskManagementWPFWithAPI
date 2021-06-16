@@ -22,7 +22,7 @@ namespace TaskManagement.WPF.Services {
 
 			var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-			HttpResponseMessage response = await _client.PostAsync("", data);
+			HttpResponseMessage response = await _client.PostAsync($"{taskToCreate.IssueId}/tasks", data);
 			string jsonResponse = await response.Content.ReadAsStringAsync();
 			if (response.StatusCode == System.Net.HttpStatusCode.BadRequest) {
 				return null;
@@ -41,7 +41,7 @@ namespace TaskManagement.WPF.Services {
 
 			var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-			HttpResponseMessage response = await _client.PutAsync("", data);
+			HttpResponseMessage response = await _client.PutAsync($"{taskToUpdate.IssueId}/tasks/{taskToUpdate.Id}", data);
 			string jsonResponse = await response.Content.ReadAsStringAsync();
 			if (response.StatusCode == System.Net.HttpStatusCode.BadRequest || response.StatusCode == System.Net.HttpStatusCode.NotFound) {
 				return -1;
@@ -56,7 +56,7 @@ namespace TaskManagement.WPF.Services {
 		public async System.Threading.Tasks.Task<bool> DeleteAsync(string accessToken, IEnumerable<Task> tasksToDelete) {
 			_client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
-			var request = new HttpRequestMessage(HttpMethod.Delete, "");
+			var request = new HttpRequestMessage(HttpMethod.Delete, $"{tasksToDelete.First().IssueId}/tasks");
 
 			request.Content = new StringContent(JsonConvert.SerializeObject(tasksToDelete), Encoding.UTF8, "application/json");
 

@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAPI.Models;
 
 namespace WebAPI.Services.Common {
+	//This data service contains all general methods for another data services
 	public class NonQueryDataService<T> where T : DomainObject {
 
 		private readonly TaskManagementDBContext _context;
@@ -33,6 +33,7 @@ namespace WebAPI.Services.Common {
 		}
 		public async Task<int> UpdateAsync(T entity) {
 			_context.Entry(entity).State = EntityState.Modified;
+
 			await _context.SaveChangesAsync();
 			return entity.Id;
 			
